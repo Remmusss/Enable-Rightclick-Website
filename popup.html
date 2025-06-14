@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            width: 350px;
+            min-height: 200px;
+            margin: 0;
+            padding: 15px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .header h2 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .current-site {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .current-site .domain {
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        
+        .enable-btn {
+            width: 100%;
+            padding: 10px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .enable-btn:hover {
+            background: #45a049;
+            transform: translateY(-1px);
+        }
+        
+        .enable-btn:disabled {
+            background: #888;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .domains-section {
+            margin-top: 20px;
+        }
+        
+        .section-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .clear-all {
+            background: #f44336;
+            color: white;
+            border: none;
+            padding: 4px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 11px;
+        }
+        
+        .clear-all:hover {
+            background: #d32f2f;
+        }
+        
+        .domains-list {
+            max-height: 150px;
+            overflow-y: auto;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            padding: 8px;
+        }
+        
+        .domain-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 8px;
+            margin-bottom: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            font-size: 12px;
+        }
+        
+        .domain-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .remove-btn {
+            background: #ff5722;
+            color: white;
+            border: none;
+            padding: 2px 6px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 10px;
+        }
+        
+        .remove-btn:hover {
+            background: #e64a19;
+        }
+        
+        .empty-message {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 12px;
+            padding: 20px;
+        }
+        
+        .status {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 12px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>🖱️ Enable Right Click</h2>
+    </div>
+    
+    <div class="current-site">
+        <div class="domain" id="currentDomain">Đang tải...</div>
+        <button class="enable-btn" id="enableBtn">
+            <span id="btnText">Bật chuột phải cho trang này</span>
+        </button>
+        <div class="status" id="status"></div>
+    </div>
+    
+    <div class="domains-section">
+        <div class="section-title">
+            <span>📋 Domain đã lưu (<span id="domainCount">0</span>)</span>
+            <button class="clear-all" id="clearAll">Xóa tất cả</button>
+        </div>
+        <div class="domains-list" id="domainsList">
+            <div class="empty-message">Chưa có domain nào được lưu</div>
+        </div>
+    </div>
+    
+    <script src="popup.js"></script>
+</body>
+</html> 

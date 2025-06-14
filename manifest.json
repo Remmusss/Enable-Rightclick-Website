@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Enable Right Click",
+  "version": "1.3",
+  "description": "Bật lại chuột phải và nhớ domain đã kích hoạt",
+  "permissions": ["scripting", "activeTab", "storage"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Enable Right Click",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["autoinject.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["enable.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
